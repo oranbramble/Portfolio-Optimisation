@@ -13,4 +13,6 @@ You can find the data for these in the `assets` folder. To add your own assets, 
 
 The code works by forming a discrete search space of the different weightings and brute forcing the optimal weightings. It also outputs the other weighting options in the form of a graph and shows the optimal postion that has been selected, as you can see below.
 
+![risk v return ](https://github.com/oranbramble/Portfolio-Optimisation/assets/56357864/95b53d6b-a472-47a8-a42c-521531b48774)
 
+This shows all the possible porfolio weightings from our 5 assets listed above (weightings split into 0.02 steps). The  Running this code will also provide a return v time graph and 
