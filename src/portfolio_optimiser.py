@@ -191,7 +191,7 @@ def plot_risk_return(weight_vectors, cov_matrix, all_returns, expected_returns, 
     """
     Function to plot the risk vs return graphs
 
-    :param weight_vectors: List of lists, each list being a weight vector
+    :param weight_vectors: List of lists, each list being a weight vector. Index 0 = optimal, Index 1 = 1/n
     :param cov_matrix: List of lists, each list being a row of the covariance matrix
     :param all_returns: List, each element being the returns of a corresponding weight vector (in same index)
     :param size: Float, size of points on plots
@@ -203,13 +203,15 @@ def plot_risk_return(weight_vectors, cov_matrix, all_returns, expected_returns, 
     sharpe_ratios = [(r-risk_free_rate)/sd for r, sd in zip(all_returns, all_risk)]
     plt.scatter(all_risk, all_returns, c=sharpe_ratios, s=size)
     if title == "Training":
-        # Plotting optimal portfolio point 0.02, 0.02, 0.02, 0.24, 0.7)
-        x_risk = get_standard_devs(cov_matrix, [[0.02, 0.02, 0.02, 0.24, 0.7]])
-        x_return = calculate_expected_returns([0.02, 0.02, 0.02, 0.24, 0.7], expected_returns)
+        # Plotting optimal portfolio point
+        optimal_weights = weight_vectors[0]
+        x_risk = get_standard_devs(cov_matrix, [optimal_weights])
+        x_return = calculate_expected_returns(optimal_weights, expected_returns)
         plt.scatter(x_risk, x_return, c="black")
         # Plotting one-over-n
-        x_risk = get_standard_devs(cov_matrix, [[0.2,0.2,0.2,0.2,0.2]])
-        x_return = calculate_expected_returns([0.2,0.2,0.2,0.2,0.2], expected_returns)
+        one_over_n_weights = weight_vectors[1]
+        x_risk = get_standard_devs(cov_matrix, [one_over_n_weights])
+        x_return = calculate_expected_returns(one_over_n_weights, expected_returns)
         plt.scatter(x_risk, x_return, c="red")
     plt.colorbar(label="Sharpe Ratio")
     plt.title("Risk vs Return Plot ({})".format(title))
@@ -331,7 +333,7 @@ def optimal_weight_run(train, weight_combos, covariance_mat, num_stocks, expecte
     plot_risk_return(test_weight_vectors, covariance_mat, test_returns, expected_returns, 40, "Testing")
 
 
-def part_3():
+def optimise():
     # Gets returns information for every stock in directory 'assets/'
     # List of list with each inner list containing a single stock's returns for a year
     stock_data = get_stock_data("../assets/")
@@ -345,13 +347,12 @@ def part_3():
     returns, expected_returns = calculate_all_returns(train)
     covariance_mat = calculate_covariance(returns)
     plot_cov_matrix(cov_matrix=covariance_mat)
-   # print_standard_devs(covariance_mat)
     # Outputs the covariance matrix
     print("PORTFOLIO INFO : ")
     print(expected_returns)
     print(covariance_mat)
     print()
-    # This discretesizes the search space, and gets all combinations of weight vector, each representing a portfoli
+    # This discretesizes the search space, and gets all combinations of weight vector, each representing a portfolio
     weight_combos = get_all_weight_combinations(num_stocks)
     # This runs the training to find the weight vector/portfolio with optimal expected returns, then tests this on
     # the test set, and compares it to a one-over-n vector also on the test set, where all monetary allocation is even.
@@ -359,4 +360,4 @@ def part_3():
 
 
 if __name__ == "__main__":
-    part_3()
+    optimise()
