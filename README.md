@@ -28,6 +28,8 @@ So, this program creates a list of all possible combinations of the weight vecto
 
 This has been fully programmed in Python 3.11. To run this, you will need to have this installed. Download the latest version of python [here](https://www.python.org/downloads/).
 
+</br>
+
 First, clone this repository to your Command Line Interface's current directory
 
 ```
