@@ -26,5 +26,20 @@ So, this program creates a list of all possible combinations of the weight vecto
 
 ## How to Run
 
+This has been fully programmed in Python 3.11. To run this, you will need to have this installed. Download the latest version of python [here](https://www.python.org/downloads/).
 
+First, clone this repository to your Command Line Interface's current directory
+
+```
+git clone https://github.com/oranbramble/Portfolio-Optimisation.git
+```
+
+Then install both `numpy` and `matplotlib` libraries using the `pip` commmand
+
+```
+python -m pip install numpy
+```
+```
+python -m pip install matplotlib
+```
 
