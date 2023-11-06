@@ -45,3 +45,9 @@ python -m pip install numpy
 python -m pip install matplotlib
 ```
 
+Then, the script can be run easily using:
+
+```
+python portfolio_optimiser.py
+```
+
