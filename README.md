@@ -1,5 +1,6 @@
 # Portfolio-Optimisation
 
+## Description
 
 This script takes any number of 'assets' and finds the optimal weighting of investment on each stock to provide maximum returns. Each 'asset' is a stock of a company that is accessible on the stock market. For convenience, I have already included 5 assets so that this code can be run immediately. These 5 assets are:
 
@@ -15,4 +16,15 @@ The code works by forming a discrete search space of the different weightings an
 
 ![risk v return ](https://github.com/oranbramble/Portfolio-Optimisation/assets/56357864/95b53d6b-a472-47a8-a42c-521531b48774)
 
-This shows all the possible porfolio weightings from our 5 assets listed above (weightings split into 0.02 steps). The black dot represents the optimal weighting we have found whilst the red represents an avergae portfolio, with equal investment in each asset.
+This Risk vs Return graph shows the return of an average portfolio (**red** dot), with equal investment in each asset. It also shows the optimal portfolio for the same risk level as the avergae portfolio (**black** dot). This is based on the training data; a graph for the test data will be shown as this graph is closed. The code also produces a covariance matrix and a Returns vs Time graph. 
+
+## Method
+
+To optimise the portfolios, this program uses a simple methodology. It discretises the search space and brute force checks for the optimal weight combination. A weight combination is a weighting of investment in each asset. For example, if you have 5 assets, a weight combination of equal investment in each asset would be [0.2, 0.2, 0.2, 0.2, 0.2]. This means each assets receives 0.2 of the portfolio's total investment equity. 
+
+So, this program creates a list of all possible combinations of the weight vector, assuming each weight must be changed in 0.02 steps. This ensures the program does not run for too long a time period whilst also maintaining a good level of accuracy. Each weight combination is then tested against the test data to see which provides the best expected returns. The weight combination with the highest expected return is then selected as the optimal weight vector.
+
+## How to Run
+
+
+
