@@ -15,4 +15,4 @@ The code works by forming a discrete search space of the different weightings an
 
 ![risk v return ](https://github.com/oranbramble/Portfolio-Optimisation/assets/56357864/95b53d6b-a472-47a8-a42c-521531b48774)
 
-This shows all the possible porfolio weightings from our 5 assets listed above (weightings split into 0.02 steps). The black dot represents the optimal weighting we have found Running this code will also provide a return v time graph and 
+This shows all the possible porfolio weightings from our 5 assets listed above (weightings split into 0.02 steps). The black dot represents the optimal weighting we have found whilst the red represents an avergae portfolio, with equal investment in each asset.
