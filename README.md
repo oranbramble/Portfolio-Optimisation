@@ -1,5 +1,14 @@
 # Portfolio-Optimisation
 
+
+---
+## Contents
+- **[Description](#Description)**
+- **[Method](#Method)**
+- **[How To Run](#How-To-Run)**
+---
+
+
 ## Description
 
 This script takes any number of 'assets' and finds the optimal weighting of investment on each stock to provide maximum returns. Each 'asset' is a stock of a company that is accessible on the stock market. For convenience, I have already included 5 assets so that this code can be run immediately. These 5 assets are:
